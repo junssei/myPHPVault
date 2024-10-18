@@ -7,11 +7,12 @@
     <title> 2D Table </title>
     <style>
         * {
+            font-family: Roboto Mono;
             font-size: 16px;
         }
 
-
         table {
+            background-color: #000000;
             border: 1px solid black;
             margin-bottom: 12px;
         }
@@ -21,20 +22,28 @@
         }
 
         tr {
-            background-color: orange;
+            background-color: #ffffff;
+        }
+
+        th,
+        .rownum {
+            padding: 32px;
+            font-weight: bold;
+            background-color: #3B8398;
         }
     </style>
 </head>
 
 <body>
     <?php
-    generateTable(3, 4);
+    generateTable(5, 5);
     function generateTable($row, $col)
     {
         echo "<table>";
-        for ($i = 0; $i < $row; $i++) {
-            if ($i == 0) {
-                for ($x = 0; $x <= $col; $x++) {
+        $count = 1; //This is for row counter since I can't use the $i for increment because it will mess up the loop
+        for ($i = 0; $i < $row; $i++) { //This is for overall loop, which is to display and looping the rows
+            if ($i == 0) { //This statement is for to show the header because its hard to imitate the design of this project if there is no condition. 
+                for ($x = 0; $x <= $col; $x++) { //The goal of this to print the row header or the table header
                     if ($x == 0) {
                         echo "<th> </th>";
                     } else {
@@ -43,10 +52,10 @@
                 }
             }
             echo "<tr>";
-            for ($j = -1; $j < $col; $j++) {
-                if ($j == -1) {
-                    echo "<td> Row $i </td>";
-                } else {
+            for ($j = -1; $j < $col; $j++) { //This is for to display the columns in each row
+                if ($j == -1) { //This statement is if variable $j is equal to -1 it will print the column row header such "Row #"
+                    echo "<td class='rownum'> Row " . $count++ . "</td>";
+                } else { //Else it will print all the columns
                     echo "<td> x[$i][$j] </td>";
                 }
             }
