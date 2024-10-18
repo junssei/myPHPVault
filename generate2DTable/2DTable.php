@@ -33,9 +33,22 @@
     {
         echo "<table>";
         for ($i = 0; $i < $row; $i++) {
+            if ($i == 0) {
+                for ($x = 0; $x <= $col; $x++) {
+                    if ($x == 0) {
+                        echo "<th> </th>";
+                    } else {
+                        echo "<th> Column $x </th>";
+                    }
+                }
+            }
             echo "<tr>";
-            for ($j = 0; $j < $col; $j++) {
-                echo "<td> x[$i][$j] </td>";
+            for ($j = -1; $j < $col; $j++) {
+                if ($j == -1) {
+                    echo "<td> Row $i </td>";
+                } else {
+                    echo "<td> x[$i][$j] </td>";
+                }
             }
             echo "</tr>";
         }
@@ -58,6 +71,31 @@
         echo "</table>";
     }
     ?>
+
+
+    <table>
+        <tr>
+            <th> </th>
+            <th> Column 1 </th>
+            <th> Column 2 </th>
+            <th> Column 3 </th>
+            <th> Column 4 </th>
+        </tr>
+        <tr>
+            <td> Row 1 </td>
+            <td> 1 </td>
+            <td> 2 </td>
+            <td> 3 </td>
+            <td> 4 </td>
+        </tr>
+        <tr>
+            <td> Row 2 </td>
+            <td> 5 </td>
+            <td> 6 </td>
+            <td> 7 </td>
+            <td> 8 </td>
+        </tr>
+    </table>
 </body>
 
 </html>
