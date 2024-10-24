@@ -1,9 +1,10 @@
 <?php
-$title = 'Add Student';
-include 'header.php'; ?>
+$title = 'Edit Student';
+include 'header.php';
+?>
 
 <div class="container">
-    <form action="addStudentsProcess.php" method="post">
+    <form action="updateStudentProceses.php" method="post">
         <div class="row">
             <div class="col-25">
                 <label for="fname">First Name</label>

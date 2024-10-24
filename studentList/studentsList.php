@@ -1,5 +1,5 @@
 <?php
-
+$title = 'Student List';
 include 'header.php';
 
 $sql = "SELECT * FROM students";
@@ -18,6 +18,7 @@ if ($result === false) {
         <th>Full Name</th>
         <th>Email</th>
         <th>Contact</th>
+        <th>Action</th>
     </tr>
 
     <?php
@@ -28,8 +29,8 @@ if ($result === false) {
             <td><?php echo $row["first_name"] . ' ' . $row["last_name"]; ?></td>
             <td><?php echo $row["email"]; ?></td>
             <td><?php echo $row["contact"]; ?></td>
+            <td><a href='editStudent.php'> EDIT </a> <a href='deleteStudent.php'> DELETE </a></td>
         </tr>
-
     <?php
     }
     ?>

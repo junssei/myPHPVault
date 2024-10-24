@@ -1,4 +1,6 @@
-<?php include 'header.php'; ?>
+<?php include 'header.php';
+$title = 'Login';
+?>
 
 <form action="loginProcess.php" method="get">
     <input type="text" name="username" placeholder="Enter your username">
