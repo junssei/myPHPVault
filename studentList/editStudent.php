@@ -9,12 +9,13 @@ $row = mysqli_fetch_array($result);
 ?>
 
 <div class="container">
-    <form action="updateStudentProceses.php" method="post">
+    <form action="updateStudentProcess.php" method="post">
         <div class="row">
             <div class="col-25">
                 <label for="fname">First Name</label>
             </div>
             <div class="col-75">
+                <input type="text" id="fname" name="student_id" value="<?php echo $row['student_id']; ?>" hidden>
                 <input type="text" id="fname" name="first_name" placeholder="Your first name.." value="<?php echo $row['first_name']; ?>">
             </div>
         </div>
