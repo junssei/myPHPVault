@@ -12,7 +12,6 @@ if ($result === false) {
 
 ?>
 
-
 <table id="students">
     <tr>
         <th>Full Name</th>
@@ -29,7 +28,7 @@ if ($result === false) {
             <td><?php echo $row["first_name"] . ' ' . $row["last_name"]; ?></td>
             <td><?php echo $row["email"]; ?></td>
             <td><?php echo $row["contact"]; ?></td>
-            <td><a href='editStudent.php'> EDIT </a> <a href='deleteStudent.php'> DELETE </a></td>
+            <td><a href='editStudent.php?sID=<?php echo $row['student_id'] ?>'> EDIT </a><a href='deleteStudent.php?sID=<?php echo $row['student_id'] ?>'> DELETE </a></td>
         </tr>
     <?php
     }
