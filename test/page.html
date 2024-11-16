@@ -1,0 +1,60 @@
+<html>
+<head>
+<script>
+
+function showUser() {
+  const salaryGrade = document.getElementById("salaryGrade").value;
+  const position = document.getElementById("position").value;
+
+  if (salaryGrade === "" && position === "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","table.php?salaryGrade=" + salaryGrade + "&position=" + position,true);
+    xmlhttp.send();
+  }
+}
+</script>
+</head>
+<body>
+
+  <form>
+    <label for="salaryGrade">Salary Grade:</label>
+    <select id="salaryGrade" name="salaryGrade" onchange="showUser()">
+      <option value="30">30</option>
+      <option value="28">28</option>
+      <option value="26">26</option>
+      <option value="25">25</option>
+      <option value="24">24</option>
+      <option value="22">22</option>
+      <option value="14">14</option>
+    </select>
+  
+    <br><br>
+  
+    <label for="position">Position:</label>
+    <select id="position" name="position" onchange="showUser()">
+      <option value="Mayor">Mayor</option>
+      <option value="Vice Mayor">Vice Mayor</option>
+      <option value="City Councilor">City Councilor</option>
+      <option value="Barangay Captain">Barangay Captain</option>
+      <option value="Municipal Treasurer">Municipal Treasurer</option>
+      <option value="City Engineer">City Engineer</option>
+      <option value="Secretary to the Mayor">Secretary to the Mayor</option>
+      <option value="City Accountant">City Accountant</option>
+      <option value="City Administrator">City Administrator</option>
+      <option value="City Planning Officer">City Planning Officer</option>
+    </select>
+  </form>
+  
+<br>
+<div id="txtHint"><b>official info will be listed here...</b></div>
+
+</body>
+</html>

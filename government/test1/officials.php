@@ -6,13 +6,16 @@ if (!$con) {
   die('Could not connect: ' . mysqli_error($con));
 }
 
-if($q == 1){
+/* if($q == 1){
     $sql="SELECT official_firstName, official_lastName, official_grade FROM officials";
     $result = mysqli_query($con,$sql);
 } else if ($q == 2){
-    $sql="SELECT official_firstName, official_lastName, official_position FROM officials";
-    $result = mysqli_query($con,$sql);
-}
+  $sql="SELECT official_firstName, official_lastName, official_position FROM officials";
+  $result = mysqli_query($con,$sql);
+}  else { */
+  $sql = "SELECT * FROM officials";
+  $result = mysqli_query($con,$sql);
+  // $sql1="SELECT * FROM officials WHERE official_position = '' && official_grade = ''";
 
 echo "<table>
 <tr>
@@ -22,7 +25,10 @@ if($q == 1){
   echo "<th>Salary Grade</th></tr>";
 } else if ($q == 2){
   echo "<th>Position</th></tr>";
-}
+} /*else {
+  echo "<th>Salary Grade</th>";
+  echo "<th>Position</th></tr>";
+}*/
 
 if($q == 1){
     while($row = mysqli_fetch_array($result)) {
@@ -40,8 +46,16 @@ if($q == 1){
       echo "<td>" . $row['official_position'] . "</td>";
       echo "</tr>";
     }
-    
-}
+  } /*else {
+    while($row = mysqli_fetch_array($result)) {
+      echo "<tr>";
+      echo "<td>" . $row['official_firstName'] . "</td>";
+      echo "<td>" . $row['official_lastName'] . "</td>";
+      echo "<td>" . $row['official_grade'] . "</td>";
+      echo "<td>" . $row['official_position'] . "</td>";
+      echo "</tr>";
+    }
+  }*/
 echo "</table>";
 
 mysqli_close($con);
