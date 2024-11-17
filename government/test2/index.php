@@ -27,10 +27,54 @@
             background-color: #04AA6D;
             color: white;
         }
+        
+        select {
+        -webkit-appearance:none;
+        -moz-appearance:none;
+        -ms-appearance:none;
+        appearance:none;
+        outline:0;
+        box-shadow:none;
+        border:0!important;
+        background: #04AA6D;
+        background-image: none;
+        margin-right: 10px;
+        padding: 0 .5em;
+        color:#fff;
+        cursor:pointer;
+        font-size: 1em;
+        font-family: 'Open Sans', sans-serif;
+        width: 20em;
+        }
+
+        select::-ms-expand {
+        display: none;
+        }
+
+        .select {
+        position: relative;
+        display: flex;
+        height: 3em;
+        line-height: 3;
+        overflow: hidden;
+        border-radius: .25em;
+        margin-bottom: 32px;
+        }
+        /* .select::after {
+        content: '\25BC';
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 1em;
+        background: #2b2e2e;
+        cursor:pointer;
+        pointer-events:none;
+        transition:.25s all ease;
+        } */
     </style>
 </head>
 <body>
-    <form>
+    <form class="select">
         <select id="slctGrade" name="salary_grade" onchange="showUser()">
             <option value="">Select salary grade:</option>
             <?php
@@ -43,6 +87,7 @@
             <option value="">Select position:</option>
             <?php
                 $position = array(
+                    // National Level
                     'President',
                     'Vice President',
                     'Senator',
@@ -58,6 +103,8 @@
                     'Associate Justice',
                     'Ombudsman',
                     'Deputy Ombudsman',
+                
+                    // Local Level
                     'Governor',
                     'Vice Governor',
                     'Board Member',
@@ -65,8 +112,36 @@
                     'Vice Mayor',
                     'City Councilor',
                     'Barangay Captain',
-                    'Barangay Councilor'
+                    'Barangay Councilor',
+                
+                    // Specialized Positions
+                    'Chief of Police',
+                    'Regional Director',
+                    'Municipal Treasurer',
+                    'Municipal Assessor',
+                    'Provincial Engineer',
+                    'Provincial Health Officer',
+                    'Election Officer',
+                    'Public Attorney',
+                    'Prosecutor',
+                    'Public School District Supervisor',
+                
+                    // Government-Owned or Controlled Corporations (GOCCs)
+                    'Chairperson',
+                    'President/CEO',
+                    'Board Member',
+                
+                    // Civil Service
+                    'Administrative Officer',
+                    'Budget Officer',
+                    'Human Resource Officer',
+                    'Information Officer',
+                    'Accountant',
+                    'Auditor',
+                    'Planning Officer',
+                    'Legal Officer'
                 );
+                
 
                 for($i = 0; $i < count($position); $i++){
                     echo "<option value='". $position[$i] . "'>" . $position[$i] . "</option>";
